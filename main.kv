@@ -1,0 +1,49 @@
+#:include kv/homepage.kv
+#:include kv/dadosentrada.kv
+
+#:import utils kivy.utils
+
+FloatLayout:
+    Label:
+        pos_hint : {"right": 0.22, "top": 0.98}
+        size_hint: 0.15, 0.05
+        text: "Mês/Ano:"
+
+    TextInput:
+        id: txt_mes
+        pos_hint : {"right": 0.41, "top": 0.98}
+        size_hint: 0.13, 0.05
+
+    TextInput:
+        id: txt_ano
+        pos_hint : {"right": 0.60, "top": 0.98}
+        size_hint: 0.16, 0.05
+
+    ImageButton:
+        id: imgDiminui
+        pos_hint : {"right": 0.80, "top": 0.98}
+        size_hint: 0.10, 0.05
+        source: "icones/setaEsquerda.png"
+        on_release: app.diminuiMes(), app.carregar_infos()
+
+    ImageButton:
+        id: imgSoma
+        pos_hint : {"right": 0.90, "top": 0.98}
+        size_hint: 0.10, 0.05
+        source: "icones/setaDireita.png"
+        on_release: app.somaMes(), app.carregar_infos()
+
+
+    ScreenManager:
+        pos_hint : {"right": 1, "top": 0.95}
+        size_hint: 1, 0.85
+        id: screen_manager
+        HomePage:
+            id: homepage
+            name: "homepage"
+        DadosEntrada:
+            id: dadosentrada
+            name: "dadosentrada"
+
+
+

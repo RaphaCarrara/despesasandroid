@@ -1,0 +1,132 @@
+<DadosEntrada>:
+    FloatLayout:
+        canvas:
+            Rectangle:
+                size: self.size
+                pos: self.pos
+                source: "icones/bg1.png"
+
+        GridLayout:
+            pos_hint: {"right":0.9, "top":0.96 }
+            size_hint: 0.9, 0.055
+            rows: 1
+            Label:
+                text: "Código"
+                id: label_codigo
+            TextInput:
+                id: txt_codigo
+                hint_text: "0"
+
+        GridLayout:
+            pos_hint: {"right":0.9, "top":0.90 }
+            size_hint: 0.9, 0.055
+            rows: 1
+            Label:
+                id: label_tipo
+                text: "Tipo"
+            TextInput:
+                id: txt_tipo
+
+        GridLayout:
+            pos_hint: {"right":0.9, "top":0.84 }
+            size_hint: 0.9, 0.055
+            rows: 1
+            Label:
+                id: label_status
+                text: "Status"
+            TextInput:
+                id: txt_status
+
+        GridLayout:
+            pos_hint: {"right":0.9, "top":0.78 }
+            size_hint: 0.9, 0.055
+            rows: 1
+            Label:
+                id: label_descricao
+                text: "Descrição"
+            TextInput:
+                id: txt_descricao
+
+        GridLayout:
+            pos_hint: {"right":0.9, "top":0.72 }
+            size_hint: 0.9, 0.055
+            rows: 1
+            Label:
+                id: label_responsavel
+                text: "Responsável"
+            TextInput:
+                id: txt_responsavel
+
+        GridLayout:
+            pos_hint: {"right":0.9, "top":0.66 }
+            size_hint: 0.9, 0.055
+            rows: 1
+            Label:
+                id: label_valor
+                text: "Valor"
+            TextInput:
+                id: txt_valor
+
+        GridLayout:
+            pos_hint: {"right":0.9, "top":0.60 }
+            size_hint: 0.9, 0.055
+            rows: 1
+            Label:
+                id: label_data_vencimento
+                text: "Data vencimento"
+            TextInput:
+                id: txt_data_vencimento
+
+        GridLayout:
+            pos_hint: {"right":0.9, "top":0.54 }
+            size_hint: 0.9, 0.055
+            rows: 1
+            Label:
+                id: label_valor_pago
+                text: "Valor pago"
+            TextInput:
+                id: txt_valor_pago
+
+        GridLayout:
+            pos_hint: {"right":0.9, "top":0.48 }
+            size_hint: 0.9, 0.055
+            rows: 1
+            Label:
+                id: label_data_pagamento
+                text: "Data pagamento"
+            TextInput:
+                id: txt_data_pagamento
+
+        GridLayout:
+            pos_hint: {"right":0.9, "top":0.42 }
+            size_hint: 0.9, 0.055
+            rows: 1
+            Label:
+                id: label_observacao
+                text: "Observação"
+            TextInput:
+                id: txt_observacao
+
+
+        LabelButton:
+            canvas.before:
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+                    source: "icones/botao.png" if self.state == "normal" else "icones/botao_apertado.png"
+            pos_hint: {"right":0.50, "top":0.2 }
+            size_hint: 0.4, 0.2
+            text: "Voltar"
+            on_release: app.mudar_tela("homepage")
+
+        LabelButton:
+            canvas.before:
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+                    source: "icones/botao.png" if self.state == "normal" else "icones/botao_apertado.png"
+            pos_hint: {"right":0.90, "top":0.2 }
+            size_hint: 0.4, 0.2
+            text: "Gravar"
+            id: txt_gravar
+            on_release: print("Gravar registro")
