@@ -34,7 +34,7 @@ class BannerRegistros(GridLayout):
 
 
 
-        print("Esquerda")
+        #print("Esquerda")
 
         coluna1 = FloatLayout()
         esquerda_label_codigo = Label(text=f"{codigo}", pos_hint={"right": 0.55, "top": 0.95}, size_hint=(0.33, 0.33), font_size = 12)
@@ -44,7 +44,7 @@ class BannerRegistros(GridLayout):
         coluna1.add_widget(esquerda_label_tipo)
         coluna1.add_widget(esquerda_label_vencimento)
 
-        print("Centro")
+        #print("Centro")
 
         centro = FloatLayout()
         centro_imagem = Label(text=descricao, pos_hint={"right": 1, "top": 0.95}, size_hint=(0.66, 0.33), font_size = 12, halign = 'right')
@@ -55,7 +55,7 @@ class BannerRegistros(GridLayout):
         centro.add_widget(centro_label_data_pagamento)
 
 
-        print("Direita")
+        #print("Direita")
 
         direita = FloatLayout()
         #direita_label_vencimento = Label(text=f"Pagto: {data_pagamento}", pos_hint={"right": 1, "top": 0.95}, size_hint=(1, 0.33))

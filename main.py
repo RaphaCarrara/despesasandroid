@@ -2,8 +2,9 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen
 from bannerregistros import BannerRegistros
-import pyodbc
-from pySql import dados_conexao
+#import pyodbc
+from pymssql import _mssql
+from pySql import conn
 from datetime import datetime, timedelta
 from botoes import *
 
@@ -46,8 +47,8 @@ class MainApp(App):
         dataInicial = dicDatas[0]
         dataFinal = dicDatas[1]
 
-        conexao = pyodbc.connect(dados_conexao)
-        cursor = conexao.cursor()
+        #conexao = _mssql.connect(conn)
+        cursor = conn.cursor()
 
         comando = f"""SELECT * FROM dbo.movimento Where datavencimento >= '{dataInicial}' And datavencimento <= '{dataFinal}' ORDER BY dataVencimento"""
         cursor.execute(comando)
@@ -90,6 +91,8 @@ class MainApp(App):
 
     def calculaIntervaloDatas(self, mes, ano):
 
+        print("calculaIntervaloDatas: " + str(mes) + "/" + str(ano))
+
         dataInicial = datetime(year = ano, month = mes, day = 1)
         dataFinal = datetime(year = ano, month = mes + 1, day = 1)
         dataFinal = dataFinal - timedelta(days = 1)
@@ -112,13 +115,16 @@ class MainApp(App):
         else:
             self.root.ids.txt_mes.text = str(proximo_mes)
 
+        #self.carregar_infos()
 
     def diminuiMes(self):
+
+        print("A: " + str(self.root.ids.txt_mes.text))
 
         proximo_mes = int(self.root.ids.txt_mes.text) - 1
         ano = int(self.root.ids.txt_ano.text)
 
-        print(proximo_mes)
+        print("B: " + str(proximo_mes))
         if proximo_mes < 1:
             self.root.ids.txt_mes.text = "12"
             self.root.ids.txt_ano.text = str(ano - 1)
@@ -129,5 +135,6 @@ class MainApp(App):
         else:
             self.root.ids.txt_mes.text = str(proximo_mes)
 
+        #self.carregar_infos()
 
 MainApp().run()

@@ -24,14 +24,21 @@ FloatLayout:
         pos_hint : {"right": 0.80, "top": 0.98}
         size_hint: 0.10, 0.05
         source: "icones/setaEsquerda.png"
-        on_release: app.diminuiMes(), app.carregar_infos()
+        on_release: app.diminuiMes()
 
     ImageButton:
         id: imgSoma
         pos_hint : {"right": 0.90, "top": 0.98}
         size_hint: 0.10, 0.05
         source: "icones/setaDireita.png"
-        on_release: app.somaMes(), app.carregar_infos()
+        on_release: app.somaMes()
+
+    ImageButton:
+        id: imgSoma
+        pos_hint : {"right": 0.98, "top": 0.98}
+        size_hint: 0.10, 0.05
+        source: "icones/setaBaixo.png"
+        on_release: app.carregar_infos()
 
 
     ScreenManager:
